@@ -49,8 +49,7 @@ function TPRTable(props) {
 
   function formatDate(dateDate) {
     let day = dateDate.getDate();
-    let month = dateDate.getMonth() + 1;
-    return `${day}/${month}`;
+    return day;
   }
 
   function passOrNot(dateDate, records) {
@@ -82,7 +81,7 @@ function TPRTable(props) {
               <TableRow key={item.id} className={index % 2 === 0 ? classes.oddRow : ''}>
                 <TableCell component="th" scope="row" className={classes.firstColumn}>
                   <div>{item.displayName}</div>
-                  <div>{`${item.records.length}/${arrayDate.length}`}</div>
+                  <div>{`${item.records.length}/${item.register.value ?? 15}`}</div>
                 </TableCell>
                 {arrayDate.map(element => (
                   <TableCell align="center">{passOrNot(element, item.records)}</TableCell>
